@@ -1,0 +1,37 @@
+.mainBtn {
+  box-sizing: border-box;
+  background: #6963d3;
+  padding: 16px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  position: relative;
+  border: none;
+}
+.mainBtn::before {
+  border: 4px #6963d3 solid;
+  content: " ";
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mainBtn:hover::before {
+  border: 4px black solid;
+
+  left: 10px;
+  top: 8px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.mainBtn:focus {
+  outline: none;
+}

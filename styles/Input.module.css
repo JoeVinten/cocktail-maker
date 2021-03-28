@@ -1,0 +1,30 @@
+.textInput {
+  padding: 20px;
+  border: 4px #7d7d7d solid;
+  width: 100%;
+  box-shadow: 0.5em 0.5em 1em #9892ff;
+  font-size: 1.5em;
+  max-width: 400px;
+}
+
+.textInput:focus {
+  border: 4px #6963d3 solid;
+  box-shadow: 0.5em 0.5em 1em #6963d3;
+  outline: none;
+}
+
+.textInput:hover {
+  box-shadow: 0.5em 0.5em 1em #6963d3;
+}
+
+.inputContainer {
+  display: flex;
+  margin: 2em 0;
+  justify-content: center;
+}
+
+.hiddenLabel {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
