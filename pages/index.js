@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import TextInput from "../src/components/TextInput";
 import Image from "next/image";
@@ -50,6 +50,7 @@ export default function Home() {
         width={500}
         height={500}
       />
+
       {cocktails &&
         cocktails.map((cocktail) => (
           <Card

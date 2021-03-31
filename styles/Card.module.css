@@ -1,0 +1,22 @@
+.cardContainer {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px -1px 37px -8px rgba(0, 0, 0, 0.75);
+  border-radius: 2em;
+  margin: 40px;
+}
+
+.thumbnail {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2em 2em 0 0;
+}
+
+.cardText {
+  padding: 1.5em 1em;
+}
+
+.buttonContainer {
+  margin: 1em auto;
+}
