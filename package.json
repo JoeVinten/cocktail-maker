@@ -1,13 +1,12 @@
 {
-  "name": "mixed-messages",
+  "name": "mixing-it-up",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "commit": "cz"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
   "dependencies": {
     "next": "10.0.9",

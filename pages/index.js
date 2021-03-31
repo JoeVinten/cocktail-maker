@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import Head from "next/head";
+
 import TextInput from "../src/components/TextInput";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Button from "../src/components/Button";
+import Card from "../src/components/Card";
 
 export default function Home() {
   const [search, setSearch] = useState("");
+  const [cocktails, setCocktails] = useState(null);
 
   const handleInput = (e) => {
     setSearch(e.target.value);
@@ -18,25 +20,17 @@ export default function Home() {
     setSearch("");
   };
 
-  const getData = (search) => {
-    return fetch(
+  const getData = async (search) => {
+    const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
-    )
-      .then((data) => data.json())
-      .then((res) => console.log(res))
-      .catch((error) => console.error(error));
+    );
+    const data = await response.json();
+    const drinks = data.drinks;
+    setCocktails(drinks);
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Mixing it up</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className={styles.textArea}>
         <form onSubmit={handleSubmit}>
           <TextInput
@@ -56,6 +50,16 @@ export default function Home() {
         width={500}
         height={500}
       />
+      {cocktails &&
+        cocktails.map((cocktail) => (
+          <Card
+            key={cocktail.idDrink}
+            imgSrc={cocktail.strDrinkThumb}
+            name={cocktail.strDrink}
+            mainIngredient={cocktail.strIngredient1}
+            glass={cocktail.strGlass}
+          />
+        ))}
     </div>
   );
 }
