@@ -32,6 +32,11 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.textArea}>
+        <h1>Mix it up</h1>
+        <p>
+          Search for your favourite cocktails and get some quick and easy
+          recipes
+        </p>
         <form onSubmit={handleSubmit}>
           <TextInput
             name="hello"

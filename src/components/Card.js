@@ -8,7 +8,7 @@ const Card = ({ imgSrc, name, mainIngredient, glass }) => {
       <img className={styles.thumbnail} src={imgSrc} alt={name}></img>
       <div className={styles.cardText}>
         <h3>{name}</h3>
-        <p>{mainIngredient}</p>
+        <p>Main ingredient: {mainIngredient}</p>
         <p>{glass}</p>
       </div>
       <div className={styles.buttonContainer}>
