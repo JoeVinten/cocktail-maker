@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         <title>Mixing it up</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
