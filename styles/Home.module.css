@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
   flex-wrap: wrap;
   max-width: 80%;
 }

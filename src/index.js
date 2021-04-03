@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import App from "../pages/_app";
 
 // Opt-in to Webpack hot module replacement
 if (module.hot) module.hot.accept();
