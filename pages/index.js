@@ -55,7 +55,7 @@ export default function Home() {
         </div>
         <Image
           className={styles.backgroundDisplay}
-          src="/../public/undraw_partying_p92d.svg"
+          src={"/../public/undraw_partying_p92d.svg"}
           alt="Party illustration"
           width={500}
           height={500}
