@@ -29,6 +29,7 @@ export default function Home() {
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       setCocktails(res);
       setSearch("");
+      location.hash = `#search-results`;
     }
   };
 
@@ -63,7 +64,7 @@ export default function Home() {
       </div>
 
       {cocktails && (
-        <section className={styles.container}>
+        <section className={styles.cocktails}>
           {cocktails.map((cocktail) => (
             <Card
               key={cocktail.idDrink}
