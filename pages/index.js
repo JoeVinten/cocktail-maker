@@ -26,10 +26,10 @@ export default function Home() {
       console.log(errors);
     } else {
       const res = await getCocktails(search);
+      if (res === null) setErrors("Sorry that's not a cocktail we have!");
       setCocktails(res);
       setSearch("");
     }
-    console.error(errors);
   };
 
   return (
