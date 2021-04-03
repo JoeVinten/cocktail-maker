@@ -53,10 +53,10 @@ export default function Home() {
             <Button name="Search" />
           </form>
         </div>
+
         <Image
-          className={styles.backgroundDisplay}
-          src={"/../public/undraw_partying_p92d.svg"}
-          alt="Party illustration"
+          src="/undraw_partying_p92d.svg"
+          alt="Party and drinks"
           width={500}
           height={500}
         />
