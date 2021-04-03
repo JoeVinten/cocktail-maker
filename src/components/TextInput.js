@@ -12,17 +12,19 @@ const TextInput = (props) => {
     props.onChange(e);
   };
   return (
-    <div className={styles.inputContainer}>
-      {props.label && InputLabel}
-      <input
-        type="text"
-        name={props.name}
-        className={styles.textInput}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={handleChange}
-      />
-    </div>
+    <>
+      <div className={styles.inputContainer}>
+        {props.label && InputLabel}
+        <input
+          type="text"
+          name={props.name}
+          className={styles.textInput}
+          placeholder={props.placeholder}
+          value={props.value}
+          onChange={handleChange}
+        />
+      </div>
+    </>
   );
 };
 

@@ -1,26 +1,35 @@
 import { useState } from "react";
+import Image from "next/image";
 
-import getCocktails from "../src/helpers/getCocktails";
+import { getCocktails } from "../src/helpers/api";
 
 import TextInput from "../src/components/TextInput";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Button from "../src/components/Button";
 import Card from "../src/components/Card";
+import Error from "../src/components/Error";
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [cocktails, setCocktails] = useState(null);
+  const [errors, setErrors] = useState("");
 
   const handleInput = (e) => {
     setSearch(e.target.value);
+    setErrors("");
   };
 
   const handleSubmit = async (e) => {
     await e.preventDefault();
-    const res = await getCocktails(search);
-    setCocktails(res);
-    setSearch("");
+    if (search === "") {
+      setErrors("Enter an item");
+      console.log(errors);
+    } else {
+      const res = await getCocktails(search);
+      setCocktails(res);
+      setSearch("");
+    }
+    console.error(errors);
   };
 
   return (
@@ -40,6 +49,7 @@ export default function Home() {
               value={search}
               onChange={handleInput}
             />
+            {errors.length > 1 && <Error error={errors} />}
             <Button name="Search" />
           </form>
         </div>
@@ -57,6 +67,7 @@ export default function Home() {
           {cocktails.map((cocktail) => (
             <Card
               key={cocktail.idDrink}
+              id={cocktail.idDrink}
               imgSrc={cocktail.strDrinkThumb}
               name={cocktail.strDrink}
               mainIngredient={cocktail.strIngredient1}
