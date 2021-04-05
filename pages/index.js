@@ -28,8 +28,6 @@ export default function Home() {
       const res = await getCocktails(search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       setCocktails(res);
-      setSearch("");
-      location.hash = `#search-results`;
     }
   };
 

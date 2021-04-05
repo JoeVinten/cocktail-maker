@@ -6,6 +6,7 @@
   box-shadow: 10px -1px 37px -8px rgba(0, 0, 0, 0.75);
   border-radius: 2em;
   margin: 40px;
+  cursor: pointer;
 }
 
 .cardContainer:hover {
