@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { getCocktailsById } from "../../src/helpers/api";
-import Link from "next/link";
 
 import styles from "../../styles/CocktailDetails.module.css";
 
@@ -22,7 +21,6 @@ export default function Cocktail({ cocktail }) {
       <Head>
         <title>{drink.strDrink}</title>
       </Head>
-      <Link href="/">Back</Link>
       <main className={styles.container}>
         <div className={styles.content}>
           <Image

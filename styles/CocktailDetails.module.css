@@ -19,7 +19,7 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: stretch;
   box-shadow: 0.5em 0.5em 1em #9892ff;
   border: 4px #7d7d7d solid;
 }
@@ -50,6 +50,9 @@
   }
   .containerCol {
     max-width: 100%;
+  }
+  .content {
+    box-shadow: none;
   }
 }
 
