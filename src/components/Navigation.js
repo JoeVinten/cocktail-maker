@@ -8,9 +8,11 @@ const Navigation = () => {
     <nav className={styles.navContainer}>
       <div className={styles.innerNav}>
         <Link href="/">
-          <Image height="40" width="40" src="/logo.svg" />
+          <div className={styles.logo}>
+            <Image height="40" width="40" src="/logo.svg" />
+            Mix it up
+          </div>
         </Link>
-        Mix it up
       </div>
     </nav>
   );
