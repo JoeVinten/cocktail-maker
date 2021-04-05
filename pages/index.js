@@ -52,13 +52,14 @@ export default function Home() {
             <Button name="Search" />
           </form>
         </div>
-
-        <Image
-          src="/undraw_partying_p92d.svg"
-          alt="Party and drinks"
-          width={500}
-          height={500}
-        />
+        <div className={styles.imgContainer}>
+          <Image
+            src="/undraw_partying_p92d.svg"
+            alt="Party and drinks"
+            width={500}
+            height={500}
+          />
+        </div>
       </div>
 
       {cocktails && (

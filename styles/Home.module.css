@@ -13,8 +13,8 @@
   align-items: center;
 }
 
-.backgroundDisplay {
-  opacity: 0.7;
+.imgContainer {
+  margin-bottom: 1em;
 }
 
 .cocktails {

@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { getCocktailsById } from "../../src/helpers/api";
 
 import styles from "../../styles/CocktailDetails.module.css";
-import Button from "../../src/components/Button";
 
 export default function Cocktail({ cocktail }) {
   const router = useRouter();
