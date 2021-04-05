@@ -43,6 +43,21 @@
   margin: 0 1.5em 1em 0;
 }
 
+.backLink {
+  appearance: none;
+  border: none;
+  background: none;
+  font: inherit;
+  color: #6963d3;
+  text-align: left;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.backLink:hover {
+  color: #5450a7;
+}
+
 @media screen and (max-width: 780px) {
   .container {
     max-width: 90%;

@@ -1,11 +1,15 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { getCocktailsById } from "../../src/helpers/api";
 
 import styles from "../../styles/CocktailDetails.module.css";
+import Button from "../../src/components/Button";
 
 export default function Cocktail({ cocktail }) {
+  const router = useRouter();
+
   const drink = cocktail[0];
   console.log(cocktail[0]);
   const drinksIngredients = [];
@@ -22,6 +26,11 @@ export default function Cocktail({ cocktail }) {
         <title>{drink.strDrink}</title>
       </Head>
       <main className={styles.container}>
+        <div>
+          <button className={styles.backLink} onClick={() => router.back()}>
+            {"<"} Back
+          </button>
+        </div>
         <div className={styles.content}>
           <Image
             src={drink.strDrinkThumb}
@@ -39,7 +48,7 @@ export default function Cocktail({ cocktail }) {
                   const measure = `strMeasure${index + 1}`;
                   return (
                     <li key={ingredient}>
-                      {ingredient}: {drink[measure]}
+                      {drink[measure]} {ingredient}
                     </li>
                   );
                 })}
