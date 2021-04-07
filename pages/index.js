@@ -12,6 +12,7 @@ import Error from "../src/components/Error";
 export default function Home() {
   const [search, setSearch] = useState("");
   const [cocktails, setCocktails] = useState(null);
+  const [inputSearch, setInputSearch] = useState("cocktail");
   const [errors, setErrors] = useState("");
 
   const handleInput = (e) => {
@@ -20,15 +21,21 @@ export default function Home() {
   };
 
   const handleSubmit = async (e) => {
+    const searchBy =
+      e.target.querySelector("input").name === "cocktail" ? "search" : "filter";
     await e.preventDefault();
     if (search === "") {
       setErrors("Enter an item");
-      console.log(errors);
     } else {
-      const res = await getCocktails(search);
+      const res = await getCocktails(searchBy, search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       setCocktails(res);
     }
+  };
+
+  const handleSearchSwitch = () => {
+    const updateValue = inputSearch === "cocktail" ? "alcohol" : "cocktail";
+    setInputSearch(updateValue);
   };
 
   return (
@@ -40,16 +47,19 @@ export default function Home() {
             Search for your favorite cocktails and get some quick and easy
             recipes
           </p>
+          <Button secondary onClick={handleSearchSwitch}>
+            Search by {inputSearch === "cocktail" ? "alcohol" : "cocktail"}
+          </Button>
           <form onSubmit={handleSubmit}>
             <TextInput
-              name="hello"
+              name={inputSearch}
               label="Search field"
-              placeholder="Search for a cocktail..."
+              placeholder="Search..."
               value={search}
               onChange={handleInput}
             />
             {errors.length > 1 && <Error error={errors} />}
-            <Button name="Search" />
+            <Button>Search</Button>
           </form>
         </div>
         <div className={styles.imgContainer}>

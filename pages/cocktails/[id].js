@@ -15,7 +15,6 @@ export default function Cocktail({ cocktail }) {
 
   for (const [key, value] of Object.entries(drink)) {
     if (key.includes("strIngredient") && value !== null) {
-      console.log(`${key}, ${value}`);
       drinksIngredients.push(value);
     }
   }

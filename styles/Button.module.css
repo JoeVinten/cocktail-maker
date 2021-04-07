@@ -35,3 +35,18 @@
 .mainBtn:focus {
   outline: none;
 }
+
+.secondary {
+  background-color: black;
+  border: 4px black solid;
+  padding: 1em 2em;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.secondary:hover {
+  background-color: rgb(231, 237, 118);
+  color: black;
+}
