@@ -91,6 +91,7 @@ export default function Home(props) {
               name={cocktail.strDrink}
               mainIngredient={cocktail.strIngredient1}
               glass={cocktail.strGlass}
+              setFav={props.setFavCocktails}
             />
           ))}
         </section>
