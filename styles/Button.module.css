@@ -12,7 +12,7 @@
   position: relative;
   border: none;
 }
-.mainBtn::before {
+.mainBtn::after {
   border: 4px #6963d3 solid;
   content: " ";
   box-sizing: border-box;
@@ -23,19 +23,18 @@
   left: 0;
 }
 
-.mainBtn:hover::before {
+.mainBtn:hover::after {
   border: 4px black solid;
-
   left: 10px;
   top: 8px;
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   transition-timing-function: ease;
 }
 
 .mainBtn:focus {
-  outline: none;
+  outline: 4px black solid;
+  transition-duration: 0.3s;
 }
-
 .secondary {
   background-color: black;
   border: 4px black solid;
@@ -51,4 +50,10 @@
 .secondary:hover {
   background-color: rgb(231, 237, 118);
   color: black;
+}
+
+.secondary:focus {
+  border: 4px rgb(231, 237, 118) solid;
+  outline: none;
+  transition-duration: 0.3s;
 }

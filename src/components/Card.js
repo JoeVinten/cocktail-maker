@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./Button";
+import { FaHeart } from "react-icons/fa";
 import styles from "../../styles/Card.module.css";
 
 const Card = ({ imgSrc, name, mainIngredient, glass, id }) => {
@@ -16,6 +17,7 @@ const Card = ({ imgSrc, name, mainIngredient, glass, id }) => {
           width={400}
         />
         <div className={styles.cardText}>
+          <FaHeart />
           <h3>{name}</h3>
           <p>{mainIngredient && `Main ingredient: ${mainIngredient}`}</p>
           <p>{glass}</p>
