@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
-import { getCocktails } from "../src/helpers/api";
+import Router from "next/router";
+import { getCocktails, getRandom } from "../src/helpers/api";
 
 import TextInput from "../src/components/TextInput";
 import styles from "../styles/Home.module.css";
@@ -36,9 +36,16 @@ export default function Home(props) {
     props.setInputSearch(updateValue);
   };
 
+  const handleRandomCocktail = async () => {
+    const res = await getRandom();
+    if (res === null)
+      setErrors("Looks like we've run into an issue, try again later");
+    Router.push(`/cocktails/${res}`);
+  };
+
   return (
-    <>
-      <div className={styles.container}>
+    <main>
+      <section className={styles.container}>
         <div className={styles.textArea}>
           <h1>Mix it up</h1>
           <p>
@@ -48,6 +55,9 @@ export default function Home(props) {
           <Button secondary onClick={handleSearchSwitch}>
             Search by{" "}
             {props.inputSearch === "cocktail" ? "alcohol" : "cocktail"}
+          </Button>
+          <Button secondary onClick={handleRandomCocktail}>
+            Random cocktail
           </Button>
           <form onSubmit={handleSubmit}>
             <TextInput
@@ -69,7 +79,7 @@ export default function Home(props) {
             height={500}
           />
         </div>
-      </div>
+      </section>
 
       {props.cocktails && (
         <section className={styles.cocktails}>
@@ -85,7 +95,7 @@ export default function Home(props) {
           ))}
         </section>
       )}
-    </>
+    </main>
   );
 }
 

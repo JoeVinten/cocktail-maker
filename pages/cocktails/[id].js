@@ -10,7 +10,6 @@ export default function Cocktail({ cocktail }) {
   const router = useRouter();
 
   const drink = cocktail[0];
-  console.log(cocktail[0]);
   const drinksIngredients = [];
 
   for (const [key, value] of Object.entries(drink)) {
