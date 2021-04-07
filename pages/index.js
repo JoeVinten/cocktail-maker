@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { getCocktails } from "../src/helpers/api";
@@ -9,14 +9,11 @@ import Button from "../src/components/Button";
 import Card from "../src/components/Card";
 import Error from "../src/components/Error";
 
-export default function Home() {
-  const [search, setSearch] = useState("");
-  const [cocktails, setCocktails] = useState(null);
-  const [inputSearch, setInputSearch] = useState("cocktail");
+export default function Home(props) {
   const [errors, setErrors] = useState("");
 
   const handleInput = (e) => {
-    setSearch(e.target.value);
+    props.handleInput(e.target.value);
     setErrors("");
   };
 
@@ -24,18 +21,19 @@ export default function Home() {
     const searchBy =
       e.target.querySelector("input").name === "cocktail" ? "search" : "filter";
     await e.preventDefault();
-    if (search === "") {
+    if (props.search === "") {
       setErrors("Enter an item");
     } else {
-      const res = await getCocktails(searchBy, search);
+      const res = await getCocktails(searchBy, props.search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
-      setCocktails(res);
+      props.setCocktails(res);
     }
   };
 
   const handleSearchSwitch = () => {
-    const updateValue = inputSearch === "cocktail" ? "alcohol" : "cocktail";
-    setInputSearch(updateValue);
+    const updateValue =
+      props.inputSearch === "cocktail" ? "alcohol" : "cocktail";
+    props.setInputSearch(updateValue);
   };
 
   return (
@@ -48,14 +46,15 @@ export default function Home() {
             recipes
           </p>
           <Button secondary onClick={handleSearchSwitch}>
-            Search by {inputSearch === "cocktail" ? "alcohol" : "cocktail"}
+            Search by{" "}
+            {props.inputSearch === "cocktail" ? "alcohol" : "cocktail"}
           </Button>
           <form onSubmit={handleSubmit}>
             <TextInput
-              name={inputSearch}
+              name={props.inputSearch}
               label="Search field"
               placeholder="Search..."
-              value={search}
+              value={props.search}
               onChange={handleInput}
             />
             {errors.length > 1 && <Error error={errors} />}
@@ -72,9 +71,9 @@ export default function Home() {
         </div>
       </div>
 
-      {cocktails && (
+      {props.cocktails && (
         <section className={styles.cocktails}>
-          {cocktails.map((cocktail) => (
+          {props.cocktails.map((cocktail) => (
             <Card
               key={cocktail.idDrink}
               id={cocktail.idDrink}
@@ -89,3 +88,5 @@ export default function Home() {
     </>
   );
 }
+
+//
