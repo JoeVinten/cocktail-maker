@@ -9,7 +9,7 @@ const Navigation = () => {
       <div className={styles.innerNav}>
         <Link href="/">
           <div className={styles.logo}>
-            <Image height="40" width="40" src="/logo.svg" />
+            <Image height="40" width="40" src="/logo.svg" alt="logo" />
             Mix it up
           </div>
         </Link>
