@@ -1,9 +1,16 @@
-const getCocktails = async (method, search) => {
+const getCocktails = async (type, search) => {
   let lookup;
-  method === "filter" ? (lookup = "i") : (lookup = "s");
+  let method;
+  if (type === "cocktail") {
+    lookup = "filter";
+    method = "i";
+  } else {
+    lookup = "search";
+    method = "s";
+  }
   try {
     const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/${method}.php?${lookup}=${search}`
+      `https://www.thecocktaildb.com/api/json/v1/1/${lookup}.php?${method}=${search}`
     );
     const data = await response.json();
     const drinks = data.drinks;
