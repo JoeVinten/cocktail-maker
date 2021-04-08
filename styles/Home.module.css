@@ -1,11 +1,10 @@
 .container {
-  margin: 0 auto;
+  margin: 2em auto 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   max-width: 80%;
-  height: 70vh;
 }
 
 .textArea {
