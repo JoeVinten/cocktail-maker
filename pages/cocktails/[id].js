@@ -43,11 +43,13 @@ export default function Cocktail({ cocktail }) {
               <ul className={styles.ingredientsList}>
                 {drinksIngredients.map((ingredient, index) => {
                   const measure = `strMeasure${index + 1}`;
-                  return (
-                    <li key={ingredient}>
-                      {drink[measure]} {ingredient}
-                    </li>
-                  );
+                  if (ingredient.length !== "") {
+                    return (
+                      <li key={ingredient}>
+                        {drink[measure]} {ingredient}
+                      </li>
+                    );
+                  }
                 })}
               </ul>
               <div>
