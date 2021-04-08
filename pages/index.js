@@ -18,17 +18,16 @@ export default function Home(props) {
   };
 
   const handleSubmit = async (e) => {
-    // need to get rid of this should depend on the state not the DOM elements
+    await e.preventDefault();
+
     const searchBy = props.inputSearch === "cocktail" ? "search" : "filter";
 
-    await e.preventDefault();
     if (props.search === "") {
       setErrors("Please enter an item");
     } else {
       const res = await getCocktails(searchBy, props.search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       props.setCocktails(res);
-      console.log(res);
       window.scrollBy(0, window.innerHeight / 2);
     }
   };
@@ -94,7 +93,6 @@ export default function Home(props) {
               name={cocktail.strDrink}
               mainIngredient={cocktail.strIngredient1}
               glass={cocktail.strGlass}
-              setFav={props.setFavCocktails}
             />
           ))}
         </section>
