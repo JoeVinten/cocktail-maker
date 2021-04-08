@@ -19,6 +19,7 @@ export default function Home(props) {
 
   const handleSubmit = async (e) => {
     await e.preventDefault();
+    setErrors("");
 
     const searchBy = props.inputSearch === "cocktail" ? "search" : "filter";
 
