@@ -32,7 +32,8 @@
 }
 
 .mainBtn:focus {
-  outline: 4px black solid;
+  box-shadow: -4px -4px 8px 1px black;
+  outline: none;
   transition-duration: 0.3s;
 }
 .secondary {
@@ -56,4 +57,12 @@
   border: 4px rgb(231, 237, 118) solid;
   outline: none;
   transition-duration: 0.3s;
+}
+
+@media screen and (max-width: 780px) {
+  .mainBtn:hover::after {
+    border: none;
+    left: 0;
+    top: 0;
+  }
 }

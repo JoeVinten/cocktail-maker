@@ -18,15 +18,17 @@ export default function Home(props) {
   };
 
   const handleSubmit = async (e) => {
+    // need to get rid of this should depend on the state not the DOM elements
     const searchBy =
       e.target.querySelector("input").name === "cocktail" ? "search" : "filter";
     await e.preventDefault();
     if (props.search === "") {
-      setErrors("Enter an item");
+      setErrors("Please enter an item");
     } else {
       const res = await getCocktails(searchBy, props.search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       props.setCocktails(res);
+      window.scrollBy(0, window.innerHeight / 2);
     }
   };
 
