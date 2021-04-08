@@ -18,12 +18,14 @@ export default function Home(props) {
   };
 
   const handleSubmit = async (e) => {
-    console.log(props.inputSearch);
+    // need to get rid of this should depend on the state not the DOM elements
+    const searchBy = props.inputSearch === "cocktail" ? "search" : "filter";
+
     await e.preventDefault();
     if (props.search === "") {
       setErrors("Please enter an item");
     } else {
-      const res = await getCocktails(props.inputSearch, props.search);
+      const res = await getCocktails(searchBy, props.search);
       if (res === null) setErrors("Sorry that's not a cocktail we have!");
       props.setCocktails(res);
       console.log(res);
@@ -33,7 +35,7 @@ export default function Home(props) {
 
   const handleSearchSwitch = () => {
     const updateValue =
-      props.inputSearch === "cocktail" ? "ingredient" : "cocktail";
+      props.inputSearch === "cocktail" ? "alcohol" : "cocktail";
     props.setInputSearch(updateValue);
   };
 
@@ -55,7 +57,7 @@ export default function Home(props) {
           </p>
           <Button secondary onClick={handleSearchSwitch}>
             Search by{" "}
-            {props.inputSearch === "cocktail" ? "ingredient" : "cocktail"}
+            {props.inputSearch === "cocktail" ? "alcohol" : "cocktail"}
           </Button>
           <Button secondary onClick={handleRandomCocktail}>
             Random cocktail
